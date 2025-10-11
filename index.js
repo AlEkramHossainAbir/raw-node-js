@@ -6,7 +6,11 @@ const app = {}
 app.config = {
     port: 3000,
 }
-
+app.handleReqRes = (req,res)=>{
+    const parsedUrl = url.parse(req.url,true)
+    console.log(parsedUrl)
+    res.end("Hello World")
+}
 app.createServer = ()=>{
     const server = http.createServer(app.handleReqRes)
 
@@ -18,8 +22,3 @@ app.createServer = ()=>{
 app.createServer()
 
 
-app.handleReqRes = (req,res)=>{
-    const parsedUrl = url.parse(req.url,true)
-    console.log(parsedUrl)
-    res.end("Hello World")
-}
