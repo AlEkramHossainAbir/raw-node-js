@@ -8,7 +8,10 @@ app.config = {
 }
 app.handleReqRes = (req,res)=>{
     const parsedUrl = url.parse(req.url,true)
-    console.log(parsedUrl)
+    const type = req.method.toLowerCase()
+    const header = req.headers
+
+    console.log(parsedUrl,header,type)
     res.end("Hello World")
 }
 app.createServer = ()=>{
